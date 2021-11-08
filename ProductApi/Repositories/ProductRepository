@@ -1,4 +1,6 @@
-namespace ProductApi.Repositories
+using ProductApi.Models;
+
+namespace ProductApi.Repositories;
 
 class ProductRepository
 {
