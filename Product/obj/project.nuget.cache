@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/ZZIl7ri2PntMpCyXJNkIGqKIhEuND2/uKhk8YTcdbIPs7EZ8M6Q7NxphJmU+M3418IO6Nh09lICWpwb7Y5lvw==",
+  "dgSpecHash": "6MbUImdjIKOGYrB6yAU4VoIShlYUkX0oQIR9Wk4j44JaE0Y5w8Ier3N19dNejVm2pt7r5XSQsgBfT2CP84Kb1w==",
   "success": true,
-  "projectFilePath": "D:\\Dev projekt\\Net6MinimalApi\\Product\\Product.csproj",
+  "projectFilePath": "D:\\Dev projekt\\Net6MinimalApi\\product\\Product.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

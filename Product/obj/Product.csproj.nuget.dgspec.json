@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Dev projekt\\Net6MinimalApi\\Product\\Product.csproj": {}
+    "D:\\Dev projekt\\Net6MinimalApi\\product\\Product.csproj": {}
   },
   "projects": {
-    "D:\\Dev projekt\\Net6MinimalApi\\Product\\Product.csproj": {
+    "D:\\Dev projekt\\Net6MinimalApi\\product\\Product.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Dev projekt\\Net6MinimalApi\\Product\\Product.csproj",
+        "projectUniqueName": "D:\\Dev projekt\\Net6MinimalApi\\product\\Product.csproj",
         "projectName": "Product",
-        "projectPath": "D:\\Dev projekt\\Net6MinimalApi\\Product\\Product.csproj",
+        "projectPath": "D:\\Dev projekt\\Net6MinimalApi\\product\\Product.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\Dev projekt\\Net6MinimalApi\\Product\\obj\\",
+        "outputPath": "D:\\Dev projekt\\Net6MinimalApi\\product\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config"
