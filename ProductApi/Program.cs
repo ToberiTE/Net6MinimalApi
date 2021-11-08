@@ -10,7 +10,7 @@ app.MapPost("/products", ([FromServices] ProductRepository repository, Product p
     return Results.Created($"/products/{product.Id}", product);
 });
 
-app.MapGet("/products", ([FromServices] ProductRepository repository) => { return repository.GetAllProducts(); });
+app.MapGet("/products", async ([FromServices] ProductRepository repository) => { await Task.Delay(100); return repository.GetAllProducts(); });
 
 app.MapGet("/products/{id}", ([FromServices] ProductRepository repository, Guid id) =>
 {
@@ -33,44 +33,3 @@ app.MapDelete("/products/{id}", ([FromServices] ProductRepository repository, Gu
 });
 
 app.Run();
-
-record Product(Guid Id);
-
-class ProductRepository
-{
-    private readonly Dictionary<Guid, Product> _products = new();
-
-    public void CreateProduct(Product product)
-    {
-        if (product is null)
-        {
-            return;
-        }
-        _products[product.Id] = product;
-    }
-
-    public List<Product> GetAllProducts()
-    {
-        return _products.Values.ToList();
-    }
-
-    public Product GetProductById(Guid id)
-    {
-        return _products[id];
-    }
-
-    public void UpdateProduct(Product product)
-    {
-        var existingProduct = GetProductById(product.Id);
-        if (existingProduct is null)
-        {
-            return;
-        }
-        _products[product.Id] = product;
-    }
-
-    public void DeleteProduct(Guid id)
-    {
-        _products.Remove(id);
-    }
-}
