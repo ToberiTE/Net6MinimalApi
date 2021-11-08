@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Mvc;
+
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddSingleton<ProductRepository>();
 var app = builder.Build();
@@ -32,9 +34,11 @@ app.MapDelete("/products/{id}", ([FromServices] ProductRepository repository, Gu
 
 app.Run();
 
+record Product(Guid Id);
+
 class ProductRepository
 {
-    private readonly ProductRepository<Guid, Product> _products = new();
+    private readonly Dictionary<Guid, Product> _products = new();
 
     public void CreateProduct(Product product)
     {
@@ -57,7 +61,7 @@ class ProductRepository
 
     public void UpdateProduct(Product product)
     {
-        var existingProduct = GetById(product.Id);
+        var existingProduct = GetProductById(product.Id);
         if (existingProduct is null)
         {
             return;
