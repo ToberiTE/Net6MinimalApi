@@ -19,8 +19,13 @@ app.MapPost("/products", (ProductRepository repository, Product product) =>
     return Results.Created($"/products/{product.Id}", product);
 });
 
-app.MapGet("/products", async (ProductRepository repository) => { await Task.Delay(100); return repository.GetAll(); });
+app.MapGet("/products", async (ProductRepository repository) =>
+{
+    await Task.Delay(100);
+    return Results.Ok(repository.GetAll());
+}).Produces<Product>();
 
+/* TODO: Results.NotFound() not producing 404*/
 app.MapGet("/products/{id}", (ProductRepository repository, Guid id) =>
 {
     var product = repository.GetById(id);
