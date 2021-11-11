@@ -25,7 +25,6 @@ app.MapGet("/products", async (ProductRepository repository) =>
     return Results.Ok(repository.GetAll());
 }).Produces<Product>();
 
-/* TODO: Results.NotFound() not producing 404*/
 app.MapGet("/products/{id}", (ProductRepository repository, Guid id) =>
 {
     var product = repository.GetById(id);
