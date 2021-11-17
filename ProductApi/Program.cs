@@ -3,7 +3,6 @@ using ProductApi.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
 builder.Services.AddSingleton<ProductRepository>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -27,14 +26,12 @@ app.MapGet("/products", async (ProductRepository repository) =>
 
 app.MapGet("/products/{id}", (ProductRepository repository, Guid id) =>
 {
-    var product = repository.GetById(id);
-    return product is not null ? Results.Ok(product) : Results.NotFound();
+    return repository.GetById(id) is null ? Results.NotFound() : Results.Ok(repository.GetById(id));
 });
 
 app.MapPut("/products/{id}", (ProductRepository repository, Guid id, Product updatedProduct) =>
 {
-    var product = repository.GetById(id);
-    if (product is null) { return Results.NotFound(); }
+    if (repository.GetById(id) is null) { return Results.NotFound(); }
     repository.Update(updatedProduct);
     return Results.Ok(updatedProduct);
 });
